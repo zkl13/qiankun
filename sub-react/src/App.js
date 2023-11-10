@@ -1,7 +1,10 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import ShadowDOMWrapper from "./ShadowDOMWrapper.jsx"
+function ShowDoM () {
+  return <div className='layout-header'>1234</div>
+}
 function App() {
   return (
     <div className="App">
@@ -18,6 +21,8 @@ function App() {
         >
           Learn React
         </a>
+        <ShadowDOMWrapper/>
+        {ShowDoM()}
       </header>
     </div>
   );

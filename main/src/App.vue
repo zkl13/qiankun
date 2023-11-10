@@ -18,6 +18,7 @@
 import NProgress from 'nprogress'
 import microApps from './micro-app'
 import store from '@/store'
+console.log(microApps)
 export default {
   name: 'App',
   data () {
@@ -60,18 +61,6 @@ export default {
       }
     },
     listenRouterChange () {
-      const _wr = function (type) {
-        const orig = history[type]
-        return function () {
-          const rv = orig.apply(this, arguments)
-          const e = new Event(type)
-          e.arguments = arguments
-          window.dispatchEvent(e)
-          return rv
-        }
-      }
-      history.pushState = _wr('pushState')
-
       window.addEventListener('pushState', this.bindCurrent)
       window.addEventListener('popstate', this.bindCurrent)
 
@@ -104,6 +93,7 @@ html, body{
       box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
       line-height: 50px;
       position: relative;
+      color: red;
      .logo {
         float: left;
         margin: 0 50px;

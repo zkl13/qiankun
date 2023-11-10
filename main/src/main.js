@@ -22,14 +22,13 @@ function loader (loading) {
 const apps = microApps.map(item => {
   return {
     ...item,
-    loader
+    loader,
+    experimentalStyleIsolation: true
   }
 })
-
+console.log(apps, 'apps')
 registerMicroApps(apps, {
-  beforeLoad: app => {
-    console.log('before load app.name====>>>>>', app.name)
-  },
+
   beforeMount: [
     app => {
       console.log('[LifeCycle] before mount %c%s', 'color: green;', app.name)
@@ -47,4 +46,4 @@ registerMicroApps(apps, {
   ]
 })
 setDefaultMountApp('/sub-vue')
-start()
+start({ sanbox: { strictStyleIsolation: true } })

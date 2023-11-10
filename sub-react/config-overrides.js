@@ -1,7 +1,18 @@
 const { name } = require('./package.json');
-console.log(name)
+debugger
 
 module.exports = {
+  module: {
+    rules: [
+      {
+        test: /\.css$/i,
+        loader: 'css-loader',
+        options: {
+          modules: true
+        }
+      }
+    ]
+  },
   webpack: function override(config, env) {
     config.entry = config.entry.filter(
       (e) => !e.includes('webpackHotDevClient')

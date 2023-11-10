@@ -5,7 +5,6 @@ import routes from './router'
 import { store as commonStore } from 'common'
 import store from './store'
 import VueRouter from 'vue-router'
-
 Vue.config.productionTip = false
 let instance = null
 
